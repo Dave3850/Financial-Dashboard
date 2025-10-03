@@ -24,51 +24,60 @@
 - **Node.js** versie 18 of hoger ([download hier](https://nodejs.org/))
 - **npm** (komt mee met Node.js)
 
-### Stap 1: Clone of download deze repository
+---
 
+### 🎯 **OPTIE A: Automatisch starten (MAKKELIJKST)**
+
+#### Voor Mac/Linux:
 ```bash
 cd /workspace
+./start.sh
 ```
 
-### Stap 2: Installeer backend dependencies
-
+#### Voor Windows:
 ```bash
-cd server
-npm install
+cd /workspace
+start.bat
 ```
 
-### Stap 3: Start de backend server
+✅ De scripts installeren automatisch dependencies en starten beide servers!
 
+**Open daarna je browser op:** [http://localhost:5173](http://localhost:5173)
+
+---
+
+### 🎯 **OPTIE B: Handmatig starten (2 terminals nodig)**
+
+Je moet **2 terminal vensters** openen:
+
+#### **Terminal 1 - Backend:**
 ```bash
-npm run dev
+cd /workspace/server
+npm install        # Eerste keer
+npm run dev        # Start backend
 ```
 
-✅ De server draait nu op **http://localhost:4000**
+✅ Wacht tot je ziet: `🦷 Clinch server draait op http://localhost:4000`
 
-Je zou een bericht moeten zien:
-```
-🦷 Clinch server draait op http://localhost:4000
-📊 Test met: http://localhost:4000/api/stats
-```
-
-### Stap 4: Installeer frontend dependencies (nieuwe terminal)
-
-Open een **nieuwe terminal** en navigeer naar de client folder:
-
+#### **Terminal 2 - Frontend:**
 ```bash
-cd client
-npm install
+cd /workspace/client
+npm install        # Eerste keer
+npm run dev        # Start frontend
 ```
 
-### Stap 5: Start de frontend
+✅ Wacht tot je ziet: `Local: http://localhost:5173`
 
-```bash
-npm run dev
-```
+**Open daarna je browser op:** [http://localhost:5173](http://localhost:5173)
 
-✅ De frontend draait nu op **http://localhost:5173**
+---
 
-Je browser zou automatisch moeten openen. Zo niet, ga naar http://localhost:5173
+### ⚠️ **BELANGRIJK:**
+
+1. **Beide servers moeten tegelijk draaien!** Backend op poort 4000, frontend op poort 5173
+2. Sluit de terminal vensters NIET tijdens gebruik
+3. Stop met `Ctrl+C` in beide terminals
+4. Bij errors: check of de poorten vrij zijn
 
 ---
 
@@ -79,6 +88,12 @@ Je browser zou automatisch moeten openen. Zo niet, ga naar http://localhost:5173
 3. **Magic Button**: Klik op "Vul een Gat" om een suggestie te krijgen
 4. **Suggestie Modal**: Bekijk de voorgestelde patiënt en klik "Ja, plan in!" of "Nee, anders"
 5. **Refresh**: Klik op 🔄 Ververs om de statistieken bij te werken
+
+---
+
+---
+
+## 🆘 Problemen? Lees **SNELSTART.md** voor troubleshooting!
 
 ---
 
