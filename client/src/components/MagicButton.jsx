@@ -3,7 +3,6 @@ import { icons, messages } from '../lib/theme';
 function MagicButton({ onClick, disabled }) {
   return (
     <div className="flex flex-col items-center mb-8">
-      {/* Grote Magic Button met pulse animatie */}
       <button
         onClick={onClick}
         disabled={disabled}
@@ -24,7 +23,6 @@ function MagicButton({ onClick, disabled }) {
           <span>{messages.magicButtonLabel}</span>
         </span>
         
-        {/* Glow effect */}
         {!disabled && (
           <div className="absolute inset-0 rounded-2xl bg-clinch-accent-400 opacity-0 
                           group-hover:opacity-30 blur-xl transition-opacity duration-300">
@@ -32,7 +30,6 @@ function MagicButton({ onClick, disabled }) {
         )}
       </button>
       
-      {/* Subtitle */}
       <p className="text-sm text-gray-600 mt-3">
         {disabled ? messages.noGapsMessage : messages.magicButtonSubtext}
       </p>

@@ -1,9 +1,7 @@
-// theme.js - Clinch design tokens en constanten
-
 export const colors = {
-  primary: '#3b82f6',      // Clinch blauw
-  accent: '#22c55e',       // Accent groen
-  background: '#eff6ff',   // Lichte achtergrond
+  primary: '#3b82f6',
+  accent: '#22c55e',
+  background: '#eff6ff',
   text: {
     primary: '#1e293b',
     secondary: '#64748b',

@@ -9,7 +9,6 @@ function App() {
   const [gaps, setGaps] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Laad initiële data na login
   const loadData = async () => {
     try {
       setLoading(true);
@@ -24,7 +23,6 @@ function App() {
     }
   };
 
-  // Na login: laad data
   useEffect(() => {
     if (isLoggedIn) {
       loadData();

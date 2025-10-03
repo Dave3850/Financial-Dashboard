@@ -9,7 +9,6 @@ import {
   Legend
 } from 'chart.js';
 
-// Registreer Chart.js componenten
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -35,8 +34,8 @@ function ChartFillRate({ stats }) {
         label: 'Aantal gaten',
         data: [stats.openGaps, stats.filledGaps],
         backgroundColor: [
-          'rgba(251, 146, 60, 0.7)',  // Oranje voor open
-          'rgba(34, 197, 94, 0.7)',   // Groen voor gevuld
+          'rgba(251, 146, 60, 0.7)',
+          'rgba(34, 197, 94, 0.7)',
         ],
         borderColor: [
           'rgba(251, 146, 60, 1)',

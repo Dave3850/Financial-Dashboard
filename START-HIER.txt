@@ -1,0 +1,62 @@
+🦷 CLINCH - SUPER SIMPELE START INSTRUCTIES
+
+WAAR BEN JE NU? Je bent in de map: /home/ubuntu/clinch-app
+
+===============================================
+OPTIE 1: AUTOMATISCH STARTEN (MAKKELIJKST)
+===============================================
+
+Kopieer en plak dit in je terminal:
+
+    cd ~/clinch-app && chmod +x start.sh && ./start.sh
+
+Wacht 20-30 seconden, dan open je browser op:
+
+    http://localhost:5173
+
+===============================================
+OPTIE 2: HANDMATIG STARTEN (2 terminals)
+===============================================
+
+TERMINAL 1 (Backend):
+    cd ~/clinch-app/server
+    npm install
+    npm run dev
+
+Laat dit venster OPEN!
+
+TERMINAL 2 (Frontend - nieuw venster!):
+    cd ~/clinch-app/client
+    npm install
+    npm run dev
+
+Laat ook dit venster OPEN!
+
+Dan browser: http://localhost:5173
+
+===============================================
+WAT JE ZOU MOETEN ZIEN:
+===============================================
+
+1. Login scherm met grote 🦷
+2. Knop "Start Demo ✨"
+3. Klik erop → Dashboard met tegels en groene knop
+4. Klik "Vul een Gat" → popup met patiënt
+5. Klik "Ja, plan in!" → gat wordt gevuld!
+
+===============================================
+PROBLEMEN?
+===============================================
+
+Test of backend werkt:
+    curl http://localhost:4000/api/stats
+
+Als je JSON ziet = backend werkt! ✅
+Als niet = start backend opnieuw
+
+===============================================
+
+Alle bestanden staan in: /home/ubuntu/clinch-app
+
+server/  = Backend (Node.js API)
+client/  = Frontend (React app)

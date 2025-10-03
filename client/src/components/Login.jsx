@@ -4,22 +4,18 @@ function Login({ onLogin }) {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full text-center">
-        {/* Logo/Icon */}
         <div className="text-6xl mb-4">
           {icons.tooth}
         </div>
         
-        {/* Titel */}
         <h1 className="text-3xl font-bold text-clinch-blue-700 mb-2">
           {messages.loginTitle}
         </h1>
         
-        {/* Subtitel */}
         <p className="text-gray-600 mb-8">
           {messages.loginSubtitle}
         </p>
         
-        {/* Demo login knop */}
         <button
           onClick={onLogin}
           className="w-full bg-gradient-to-r from-clinch-blue-500 to-clinch-blue-600 
@@ -31,7 +27,6 @@ function Login({ onLogin }) {
           Start Demo {icons.magic}
         </button>
         
-        {/* Privacy note */}
         <p className="text-xs text-gray-400 mt-6">
           🔒 Geen echte patiëntdata - alleen lokale demo met dummy gegevens
         </p>

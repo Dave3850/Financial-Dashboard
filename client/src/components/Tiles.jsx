@@ -44,18 +44,15 @@ function Tiles({ stats }) {
           key={idx}
           className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-          {/* Icon */}
           <div className={`text-4xl mb-3 ${tile.bgColor} w-14 h-14 rounded-lg 
                            flex items-center justify-center`}>
             <span className={tile.color}>{tile.icon}</span>
           </div>
           
-          {/* Label */}
           <p className="text-sm text-gray-500 font-medium mb-1">
             {tile.label}
           </p>
           
-          {/* Waarde */}
           <p className={`text-3xl font-bold ${tile.color}`}>
             {tile.value}
           </p>

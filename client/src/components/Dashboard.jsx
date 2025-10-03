@@ -11,9 +11,7 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
   const [suggesting, setSuggesting] = useState(false);
   const [confirming, setConfirming] = useState(false);
 
-  // Handler: klik op Magic Button
   const handleMagicClick = async () => {
-    // Zoek eerste open gat
     const openGap = gaps.find(g => g.status === 'open');
     
     if (!openGap) {
@@ -33,7 +31,6 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
     }
   };
 
-  // Handler: bevestig patiënt
   const handleConfirm = async () => {
     if (!suggestion) return;
 
@@ -41,11 +38,9 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
       setConfirming(true);
       await confirmPatient(suggestion.gap.id, suggestion.patient.id);
       
-      // Sluit modal en refresh data
       setSuggestion(null);
       onRefresh();
       
-      // Succes feedback
       alert(`✅ ${suggestion.patient.name} is ingepland!`);
     } catch (error) {
       console.error('Fout bij bevestigen:', error);
@@ -55,7 +50,6 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
     }
   };
 
-  // Handler: annuleer suggestie
   const handleCancel = () => {
     setSuggestion(null);
   };
@@ -64,7 +58,6 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
 
   return (
     <div className="min-h-screen p-4 md:p-8">
-      {/* Header */}
       <div className="max-w-6xl mx-auto mb-8">
         <div className="bg-white rounded-2xl shadow-lg p-6 flex items-center justify-between">
           <div>
@@ -87,21 +80,14 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
         </div>
       </div>
 
-      {/* Main content */}
       <div className="max-w-6xl mx-auto">
-        {/* KPI Tiles */}
         <Tiles stats={stats} />
-
-        {/* Magic Button */}
         <MagicButton 
           onClick={handleMagicClick} 
           disabled={!hasOpenGaps || suggesting}
         />
-
-        {/* Chart */}
         <ChartFillRate stats={stats} />
 
-        {/* Gaps lijst (optioneel, voor debug/visibility) */}
         {gaps && gaps.length > 0 && (
           <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
             <h3 className="text-lg font-semibold text-gray-700 mb-4">
@@ -136,7 +122,6 @@ function Dashboard({ stats, gaps, loading, onRefresh }) {
         )}
       </div>
 
-      {/* Suggestion Modal */}
       <SuggestionModal
         suggestion={suggestion}
         onConfirm={handleConfirm}

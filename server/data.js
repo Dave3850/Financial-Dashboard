@@ -9,7 +9,7 @@ export const dummyPatients = [
     phone: '06-12345678',
     lastVisit: '2025-08-15',
     treatmentType: 'Controle',
-    priority: 8, // hogere score = hogere prioriteit
+    priority: 8,
     notes: 'Wil graag ochtenden'
   },
   {
@@ -66,7 +66,7 @@ export let gaps = [
     date: '2025-10-05',
     time: '10:00',
     duration: 30,
-    status: 'open', // 'open' of 'filled'
+    status: 'open',
     patientId: null
   },
   {
@@ -95,22 +95,14 @@ export function createGap(date, time, duration = 30) {
   return newGap;
 }
 
-// Functie: suggereer patiënt voor een gat (MVP = random, later uitbreiden naar slimme ranking)
+// Functie: suggereer patiënt voor een gat (MVP = random)
 export function suggestPatientForGap(gapId) {
   const gap = gaps.find(g => g.id === gapId);
   if (!gap || gap.status !== 'open') {
     return null;
   }
 
-  // MVP: random suggestie uit beschikbare patiënten
-  // TODO voor later: implementeer slimme ranking op basis van:
-  // - Priority score (patient.priority)
-  // - Laatste bezoek (hoe langer geleden, hoe hoger de score)
-  // - Match tussen gap duration en treatmentType
-  // - Beschikbaarheid volgens notes (dag/tijd match)
-  
   const availablePatients = dummyPatients.filter(p => {
-    // Check of patiënt niet al in een ander gat zit
     return !gaps.some(g => g.patientId === p.id && g.status === 'filled');
   });
 
@@ -118,7 +110,6 @@ export function suggestPatientForGap(gapId) {
     return null;
   }
 
-  // Random keuze voor MVP
   const randomIndex = Math.floor(Math.random() * availablePatients.length);
   const suggestedPatient = availablePatients[randomIndex];
 
@@ -146,10 +137,7 @@ export function getStats() {
   const filledGaps = gaps.filter(g => g.status === 'filled').length;
   const totalGaps = gaps.length;
   
-  // Dummy berekening extra omzet (€150 per gevuld gat)
   const extraRevenue = filledGaps * 150;
-  
-  // Fill rate percentage
   const fillRate = totalGaps > 0 ? Math.round((filledGaps / totalGaps) * 100) : 0;
 
   return {

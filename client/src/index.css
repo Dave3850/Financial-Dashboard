@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Clinch basis styling */
 :root {
   --clinch-blue: #3b82f6;
   --clinch-accent: #22c55e;
@@ -15,7 +14,6 @@ body {
   min-height: 100vh;
 }
 
-/* Custom scrollbar voor dental look */
 ::-webkit-scrollbar {
   width: 8px;
 }

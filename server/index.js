@@ -23,7 +23,6 @@ app.get('/api/stats', (req, res) => {
     stats,
     gaps: gaps.map(g => ({
       ...g,
-      // Voeg een label toe voor frontend
       label: `${g.date} om ${g.time} (${g.duration} min)`
     }))
   });
