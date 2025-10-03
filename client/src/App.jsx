@@ -16,8 +16,8 @@ function App() {
       setStats(data.stats);
       setGaps(data.gaps);
     } catch (error) {
-      console.error('Fout bij ophalen data:', error);
-      alert('Kon geen verbinding maken met de server. Zorg dat de backend draait op poort 4000.');
+      console.error('Fout:', error);
+      alert('Kon geen verbinding maken met server. Check of backend draait op poort 4000.');
     } finally {
       setLoading(false);
     }
@@ -29,26 +29,11 @@ function App() {
     }
   }, [isLoggedIn]);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleRefresh = () => {
-    loadData();
-  };
-
   if (!isLoggedIn) {
-    return <Login onLogin={handleLogin} />;
+    return <Login onLogin={() => setIsLoggedIn(true)} />;
   }
 
-  return (
-    <Dashboard 
-      stats={stats}
-      gaps={gaps}
-      loading={loading}
-      onRefresh={handleRefresh}
-    />
-  );
+  return <Dashboard stats={stats} gaps={gaps} loading={loading} onRefresh={loadData} />;
 }
 
 export default App;
